@@ -1,0 +1,42 @@
+<html>
+<script>
+	var list = [];
+	fetch('./icd10cm_tabular_2021.xml')
+	.then(response => response.text())
+        .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+        .then(data => {
+			var diags = data.querySelectorAll('diag');
+			var diagarr = Array.from(diags);
+			for (var i=0;i <diagarr.length; i++){
+				// leaf ndoes
+				if(!diagarr[i].querySelector('diag')){
+					//console.log(diagarr[i]);
+					list.push([diagarr[i].querySelector('name').innerHTML,
+								diagarr[i].querySelector('desc').innerHTML.toLowerCase()]);
+				}
+			}
+			//console.log(list);
+
+			document.getElementById('data').innerHTML = JSON.stringify(list);
+			
+			var search = 'skate';
+			var results = [];
+			if (search.length > 2){
+				for (var i=0; i<list.length; i++){
+					if (list[i][1].indexOf(search) > -1){
+						results.push(list[i]);
+						if (results.length >= 10){
+							break;
+						}
+					}
+					
+				}
+				console.log(results);
+			}
+
+		});
+</script>
+<body>
+	<textarea id="data"></textarea>
+</body>
+</html>
