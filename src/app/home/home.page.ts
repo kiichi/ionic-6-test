@@ -8,6 +8,7 @@ import { DataService, Message } from '../services/data.service';
 })
 export class HomePage {
   constructor(private data: DataService) {}
+  private search:string;
 
   refresh(ev) {
     setTimeout(() => {
@@ -17,6 +18,10 @@ export class HomePage {
 
   getMessages(): Message[] {
     return this.data.getMessages();
+  }
+
+  getCodes(inSearch:string): Message[] {
+    return this.data.getCodes(inSearch);
   }
 
 }
