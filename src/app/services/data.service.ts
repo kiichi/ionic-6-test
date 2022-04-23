@@ -91,6 +91,7 @@ export class DataService {
   public getCodes(search: string): any[] {
     var results = [];
     if (search && search.length > 2 && this.codes){
+      search = search.toLowerCase();
       for (var i=0; i < this.codes.length; i++){
         if (this.codes[i][1].indexOf(search) > -1){
         let code : Code = {
