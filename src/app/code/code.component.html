@@ -2,9 +2,8 @@
   <div slot="start" class="dot">{{code.name}}</div>
   <ion-label class="ion-text-wrap">
     {{code.desc}}
-    {{isCopied}}
   </ion-label>
   <ion-button color="light" slot="end" (click)="copy(code.name + ' ' + code.desc)">Copy
-      <ion-icon slot="end" [name]="isCopied ? 'checkmark-outline' : 'copy-outline'" ></ion-icon>
+      <ion-icon slot="end" name="copy-outline"></ion-icon>
   </ion-button>
 </ion-item>

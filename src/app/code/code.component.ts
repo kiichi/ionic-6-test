@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Code } from '../services/data.service';
 import { ClipboardService } from 'ngx-clipboard'
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-code',
@@ -9,11 +10,13 @@ import { ClipboardService } from 'ngx-clipboard'
 })
 export class CodeComponent implements OnInit {
   @Input() code: Code;
-  isCopied: Boolean = false;
-  constructor(private _clipboardService: ClipboardService) { }
+  constructor(private _clipboardService: ClipboardService,
+              public toastController: ToastController) {               
+  }
   ngOnInit() {}
-  copy(text){
-    this._clipboardService.copy(text)
-    this.isCopied = true;
+  async copy(text){    
+    this._clipboardService.copy(text);
+    const toast = await this.toastController.create({message: 'Copied!'});
+    toast.present();
   }
 }
