@@ -3,4 +3,7 @@
   <ion-label class="ion-text-wrap">
     {{code.desc}}
   </ion-label>
+  <ion-button color="light" slot="end" (click)="copy(code.name + ' ' + code.desc)">Copy
+      <ion-icon slot="end" name="copy-outline"></ion-icon>
+  </ion-button>
 </ion-item>

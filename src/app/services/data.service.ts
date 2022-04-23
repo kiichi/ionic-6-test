@@ -91,12 +91,13 @@ export class DataService {
   public getCodes(search: string): any[] {
     var results = [];
     if (search && search.length > 2 && this.codes){
+      search = search.toLowerCase();
       for (var i=0; i < this.codes.length; i++){
         if (this.codes[i][1].indexOf(search) > -1){
-			let code : Code = {
-				name: this.codes[i][0],
-				desc: this.codes[i][1]
-			};
+        let code : Code = {
+          name: this.codes[i][0],
+          desc: this.codes[i][1]
+        };
           results.push(code);
           if (results.length >= 10){
             break;
