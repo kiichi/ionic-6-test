@@ -14,3 +14,9 @@ You can see actual script in convert.html.
 <img src="https://raw.githubusercontent.com/kiichi/ionic-6-test/main/screenshot.png" width="300px"/>
 
 
+# Credits
+
+Icon
+https://www.flaticon.com/free-icon/medical-report_2464573?related_id=2464573#
+
+
