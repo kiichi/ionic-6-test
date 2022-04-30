@@ -15,3 +15,9 @@ I converted ICD10 xml file which you can download from https://www.cms.gov/medic
 
 You can see actual script in [convert.html](https://github.com/kiichi/ionic-6-test/blob/main/convert.html). I was writing xml to json converter in python but I noticed that Javascript had native xml parser so i did everything in browser.
 
+# Credits
+
+Icon
+https://www.flaticon.com/free-icon/medical-report_2464573?related_id=2464573#
+
+

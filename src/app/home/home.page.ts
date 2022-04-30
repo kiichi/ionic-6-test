@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DataService, Message } from '../services/data.service';
+import { Code, DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -7,21 +7,16 @@ import { DataService, Message } from '../services/data.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(private data: DataService) {}
+  codes:Code[];
+  constructor(private data: DataService) {
+  }
   private search:string;
 
-  refresh(ev) {
-    setTimeout(() => {
-      ev.detail.complete();
-    }, 3000);
+  doSearch(inSearch:string){
+    this.codes = this.data.getCodes(inSearch);
   }
 
-  getMessages(): Message[] {
-    return this.data.getMessages();
-  }
-
-  getCodes(inSearch:string): Message[] {
-    return this.data.getCodes(inSearch);
-  }
-
+  // getCodes(inSearch:string): Code[] {
+  //   return this.data.getCodes(inSearch);
+  // }
 }

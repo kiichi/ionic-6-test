@@ -10,13 +10,15 @@ import { ToastController } from '@ionic/angular';
 })
 export class CodeComponent implements OnInit {
   @Input() code: Code;
+  Copied: boolean;
   constructor(private _clipboardService: ClipboardService,
-              public toastController: ToastController) {               
+              public toastController: ToastController) {                
   }
   ngOnInit() {}
   async copy(text){    
     this._clipboardService.copy(text);
     const toast = await this.toastController.create({message: 'Copied!'});
     toast.present();
+    this.Copied = true;
   }
 }
